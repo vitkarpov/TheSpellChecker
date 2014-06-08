@@ -38,14 +38,22 @@ git co lesson-5
 
 Автор оригинальных уроков: [Neil Butterworth](https://bitbucket.org/neilb)
 
-### Как это работает
+### Что в итоге получится
 
 ```
 spc [-n] [[-d special.dict] …] [file …]
 ```
 
-* `-n` — выводить количество ошибок
-* `-d` — путь к файлу со словарем
+```
+article1.txt: 2 errors
+    7, thre, perhaps thre is a reaction
+    12, phiton, low-energy phiton is emitted
+```
+
+### Уроки
+
+* [Введение и предыстория: откуда взялась задача](doc/intro.md)
+* [С чего начать](doc/lesson-1.md)
 
 ### Файловая структура
 
