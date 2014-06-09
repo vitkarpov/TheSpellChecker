@@ -62,21 +62,18 @@ bin
     | spellchecker.exe
 data
     | sample-dictionary.dat
+    | ..
+inc 
+    | dictionary.h
     | ...
 doc
     | lesson1.md
     | lesson2.md
     | ...
 src
-    | dictionary
-    |   | dictionary.h
-    |   | dictionary.cpp
-    | parser
-    |   | ...
-    | csvreporter
-    | xmlreporter
-    | ...
+    | dictionary.cpp
     | main.cpp
+    | ...
 ```
 
 ### Сборка
