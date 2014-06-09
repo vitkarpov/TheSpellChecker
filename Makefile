@@ -1,5 +1,8 @@
-bin/spc.exe : main.o
-	g++ main.o -o bin/spc
+bin/spc.exe : main.o dictionary.o
+	g++ main.o dictionary.o -o bin/spc.exe
 
-main.o : src/main.cpp
+dictionary.o : inc/dictionary.h src/dictionary.cpp
+	g++ -I inc -c src/dictionary.cpp
+
+main.o : src/main.cpp inc/dictionary.h
 	g++ -I inc -c src/main.cpp
