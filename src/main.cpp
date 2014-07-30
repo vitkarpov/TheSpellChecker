@@ -22,7 +22,6 @@ int main()
     invite();
 
     Dictionary dictionary( "data/dictionary.dat" );
-
     string word;
 
     while( std::getline( std::cin, word ) ) {
