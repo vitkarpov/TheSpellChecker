@@ -1,4 +1,5 @@
 #include "dictionary.h"
+#include "error.h"
 
 Dictionary::Dictionary( const std::string &fname )
 {

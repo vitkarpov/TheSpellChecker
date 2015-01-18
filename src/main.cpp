@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include "dictionary.h"
+#include "error.h"
 
 using namespace std;
 
@@ -19,18 +20,29 @@ int main()
     cout << "||__|||__|||__|||__|||__|||__|||__||\n";
     cout << "|/__\\|/__\\|/__\\|/__\\|/__\\|/__\\|/__\\|\n";
 
-    invite();
+    try {
+        Dictionary dictionary( "data/dictionary.dat" );
+        string word;
 
-    Dictionary dictionary( "data/dictionary.dat" );
-    string word;
-
-    while( std::getline( std::cin, word ) ) {
-        if ( dictionary.Check( word ) ) {
-            cout << word << " is OK\n";
-        }
-        else {
-            cout << word << " is misspelt\n";
-        }
         invite();
+
+        while( std::getline( std::cin, word ) ) {
+            if ( dictionary.Check( word ) ) {
+                cout << word << " is OK\n";
+            }
+            else {
+                cout << word << " is misspelt\n";
+            }
+            invite();
+        }
+    }
+
+    catch( const ScheckError & e ) {
+        cerr << "Error: " << e.what() << endl;
+        return 1;
+    }
+    catch( const std::exception & e ) {
+        cerr << "Error: unknown exception" << endl;
+        return 2;
     }
 }
