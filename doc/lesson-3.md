@@ -288,7 +288,7 @@ terminate called after throwing an instance of 'ScheckError'
 
 Перепишем `main` с поддержкой исключений:
 
-```
+```c++
 int main() {
     try {
       // предыдущий код main
