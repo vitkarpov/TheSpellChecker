@@ -1,17 +1,24 @@
 #include "dictionary.h"
 
-using namespace std;
-
-Dictionary :: Dictionary( const std::string & fname )
+Dictionary::Dictionary( const std::string &fname )
 {
-    ifstream wlist( fname.c_str() );
+    std::ifstream wlist( fname.c_str() );
 
-    string word;
+    if ( !wlist.is_open() ) {
+        throw ScheckError( "Couldn't open dictionary file " + fname );
+    }
+
+    std::string word;
+
     while( std::getline( wlist, word ) ) {
         mWords.insert( word );
     }
+
+    if ( !wlist.eof() ) {
+        throw ScheckError( "Error reading dictionary file " + fname );
+    }
 }
 
-bool Dictionary :: Check( const std::string & word ) const {
+bool Dictionary::Check( const std::string &word ) const {
     return mWords.find( word ) != mWords.end();
 }
