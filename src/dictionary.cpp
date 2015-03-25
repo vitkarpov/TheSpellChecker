@@ -1,25 +1,26 @@
 #include "dictionary.h"
 #include "error.h"
 
-Dictionary::Dictionary( const std::string &fname )
-{
-    std::ifstream wlist( fname.c_str() );
+using namespace std;
 
-    if ( !wlist.is_open() ) {
-        throw ScheckError( "Couldn't open dictionary file " + fname );
+Dictionary::Dictionary(const std::string& fname) {
+    ifstream wlist(fname.c_str());
+
+    if (!wlist.is_open()) {
+        throw ScheckError("Couldn't open dictionary file " + fname);
     }
 
     std::string word;
 
-    while( std::getline( wlist, word ) ) {
+    while(getline(wlist, word)) {
         mWords.insert( word );
     }
 
-    if ( !wlist.eof() ) {
-        throw ScheckError( "Error reading dictionary file " + fname );
+    if (!wlist.eof()) {
+        throw ScheckError("Error reading dictionary file " + fname);
     }
 }
 
-bool Dictionary::Check( const std::string &word ) const {
-    return mWords.find( word ) != mWords.end();
+bool Dictionary::Check(const std::string& word) const {
+    return mWords.find(word) != mWords.end();
 }

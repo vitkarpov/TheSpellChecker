@@ -6,11 +6,11 @@
 #include <fstream>
 
 class Dictionary {
-    public:
-        Dictionary( const std::string & fname );
-        bool Check( const std::string & word ) const;
-    private:
-        std::set <std::string> mWords;
+public:
+    Dictionary( const std::string& fname );
+    bool Check( const std::string& word ) const;
+private:
+    std::set <std::string> mWords;
 };
 
 #endif
